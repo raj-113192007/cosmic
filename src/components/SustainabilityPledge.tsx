@@ -1,7 +1,11 @@
 import React from 'react';
 import { Leaf, Recycle, ShieldCheck, Mail } from 'lucide-react';
 
-export const SustainabilityPledge: React.FC = () => {
+interface SustainabilityPledgeProps {
+  openFounderContact: () => void;
+}
+
+export const SustainabilityPledge: React.FC<SustainabilityPledgeProps> = ({ openFounderContact }) => {
   return (
     <section className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -85,13 +89,16 @@ export const SustainabilityPledge: React.FC = () => {
             </div>
 
             <div className="pt-4 border-t border-cosmic-stone/40 flex flex-wrap items-center justify-between gap-4 text-xs">
-              <div className="flex items-center gap-2 text-cosmic-forest/70">
+              <button
+                onClick={openFounderContact}
+                className="flex items-center gap-2 text-cosmic-forest/80 hover:text-cosmic-wood transition-colors group"
+              >
                 <Mail className="w-3.5 h-3.5 text-cosmic-wood" />
-                <span>Direct Founder Feedback: </span>
-                <a href="mailto:aparon375@gmail.com" className="text-cosmic-wood font-semibold hover:underline">
-                  aparon375@gmail.com
-                </a>
-              </div>
+                <span>Direct Founder Desk: </span>
+                <span className="text-cosmic-wood font-semibold group-hover:underline">
+                  aparon375@gmail.com (Send Note &gt;)
+                </span>
+              </button>
               <div className="text-cosmic-muted font-mono">
                 COSMIC Air-Care Research &amp; Design Group
               </div>

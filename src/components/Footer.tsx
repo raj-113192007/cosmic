@@ -1,12 +1,24 @@
 import React from 'react';
 import { Mail, ShieldCheck, ArrowUp } from 'lucide-react';
+import { CosmicLogo } from './CosmicLogo';
 
 interface FooterProps {
   openB2B: () => void;
   openCart: () => void;
+  openCertifications: () => void;
+  openFounderContact: () => void;
+  openScienceModal: () => void;
+  openCadModal: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ openB2B, openCart }) => {
+export const Footer: React.FC<FooterProps> = ({
+  openB2B,
+  openCart,
+  openCertifications,
+  openFounderContact,
+  openScienceModal,
+  openCadModal,
+}) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -20,16 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ openB2B, openCart }) => {
           
           {/* Brand Column */}
           <div className="lg:col-span-5 space-y-4">
-            <div className="flex items-center gap-3">
-              <img
-                src="/assets/cosmic-logo.png"
-                alt="COSMIC"
-                className="h-8 w-auto object-contain"
-              />
-              <span className="text-[10px] tracking-widest font-semibold uppercase text-cosmic-wood border border-cosmic-wood/30 px-2 py-0.5 rounded-full">
-                Smart Air-Care
-              </span>
-            </div>
+            <CosmicLogo showTagline={true} />
 
             <p className="text-sm text-cosmic-forest/70 font-light leading-relaxed max-w-sm">
               Nature-inspired fragrance and architectural silence. A sustainable Japandi ultrasonic diffuser engineered with interchangeable cold-mist and passive gel technology.
@@ -40,12 +43,13 @@ export const Footer: React.FC<FooterProps> = ({ openB2B, openCart }) => {
                 <strong>Founded by: </strong>
                 <span>Aido Paron • BBA Department</span>
               </div>
-              <div className="flex items-center gap-1.5 text-cosmic-wood font-medium">
+              <button
+                onClick={openFounderContact}
+                className="flex items-center gap-1.5 text-cosmic-wood font-medium hover:underline text-left"
+              >
                 <Mail className="w-3.5 h-3.5" />
-                <a href="mailto:aparon375@gmail.com" className="hover:underline">
-                  aparon375@gmail.com
-                </a>
-              </div>
+                <span>aparon375@gmail.com (Send Founder Note)</span>
+              </button>
             </div>
           </div>
 
@@ -61,14 +65,14 @@ export const Footer: React.FC<FooterProps> = ({ openB2B, openCart }) => {
                 </a>
               </li>
               <li>
-                <a href="#technology" className="hover:text-cosmic-wood transition-colors">
-                  Cavitation Science
-                </a>
+                <button onClick={openScienceModal} className="hover:text-cosmic-wood transition-colors text-left">
+                  Cavitation Science Whitepaper
+                </button>
               </li>
               <li>
-                <a href="#engineering" className="hover:text-cosmic-wood transition-colors">
-                  8-Layer Hardware
-                </a>
+                <button onClick={openCadModal} className="hover:text-cosmic-wood transition-colors text-left">
+                  8-Layer CAD BOM Inspector
+                </button>
               </li>
               <li>
                 <a href="#technology" className="hover:text-cosmic-wood transition-colors">
@@ -120,25 +124,37 @@ export const Footer: React.FC<FooterProps> = ({ openB2B, openCart }) => {
           {/* Standards & Certifications */}
           <div className="lg:col-span-3 space-y-3">
             <h5 className="text-xs font-bold uppercase tracking-widest text-cosmic-forest">
-              Certifications
+              Certifications &amp; Safety
             </h5>
             <div className="space-y-2 text-xs text-cosmic-forest/70">
-              <div className="flex items-center gap-2">
+              <button
+                onClick={openCertifications}
+                className="flex items-center gap-2 hover:text-cosmic-wood text-left group"
+              >
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>CE &amp; RoHS Hardware Safe</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span className="group-hover:underline">CE &amp; RoHS Hardware Safe &gt;</span>
+              </button>
+              <button
+                onClick={openCertifications}
+                className="flex items-center gap-2 hover:text-cosmic-wood text-left group"
+              >
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>IFRA Botanical Compliance</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span className="group-hover:underline">IFRA Botanical Inhalation Compliance &gt;</span>
+              </button>
+              <button
+                onClick={openCertifications}
+                className="flex items-center gap-2 hover:text-cosmic-wood text-left group"
+              >
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Zero Phthalates, Zero Benzene</span>
-              </div>
-              <div className="flex items-center gap-2">
+                <span className="group-hover:underline">Zero Phthalates &amp; Lead Solder &gt;</span>
+              </button>
+              <button
+                onClick={openCertifications}
+                className="flex items-center gap-2 hover:text-cosmic-wood text-left group"
+              >
                 <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                <span>Silver-Ion Antimicrobial PP</span>
-              </div>
+                <span className="group-hover:underline">Silver-Ion (Ag+) PP JIS Z 2801 &gt;</span>
+              </button>
             </div>
           </div>
 

@@ -3,7 +3,11 @@ import { Layers, ChevronRight, CheckCircle2, Eye, Cpu } from 'lucide-react';
 import { HARDWARE_LAYERS } from '../data/cosmicData';
 import type { HardwareLayer } from '../types';
 
-export const HardwareExplodedViewer: React.FC = () => {
+interface HardwareExplodedViewerProps {
+  openCadModal: () => void;
+}
+
+export const HardwareExplodedViewer: React.FC<HardwareExplodedViewerProps> = ({ openCadModal }) => {
   const [activeLayer, setActiveLayer] = useState<HardwareLayer>(HARDWARE_LAYERS[3]); // default to atomizer
   const [viewMode, setViewMode] = useState<'exploded' | 'focus'>('exploded');
 
@@ -106,7 +110,13 @@ export const HardwareExplodedViewer: React.FC = () => {
             {/* Bottom Indicator */}
             <div className="mt-4 flex flex-wrap items-center justify-between text-xs text-cosmic-forest/70 border-t border-cosmic-stone/40 pt-3">
               <span>All 8 layers modular &amp; repairable</span>
-              <span className="font-mono text-cosmic-wood font-semibold">CAD Ref: CSMC-DIF-2026-V2</span>
+              <button
+                onClick={openCadModal}
+                className="font-mono text-cosmic-wood font-semibold hover:underline flex items-center gap-1"
+              >
+                <span>CAD Ref: CSMC-DIF-2026-V2</span>
+                <span className="text-[10px] bg-cosmic-sand px-1.5 py-0.5 rounded">Inspect BOM &gt;</span>
+              </button>
             </div>
 
           </div>

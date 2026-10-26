@@ -7,9 +7,15 @@ interface BotanicalStudioProps {
   mood: AtmosphereMood;
   setMood: (mood: AtmosphereMood) => void;
   openCart: () => void;
+  openScentDetailModal: () => void;
 }
 
-export const BotanicalStudio: React.FC<BotanicalStudioProps> = ({ mood, setMood, openCart }) => {
+export const BotanicalStudio: React.FC<BotanicalStudioProps> = ({
+  mood,
+  setMood,
+  openCart,
+  openScentDetailModal,
+}) => {
   const currentProfile: ScentProfile =
     SCENT_PROFILES.find((s) => s.id === mood) || SCENT_PROFILES[0];
 
@@ -187,10 +193,13 @@ export const BotanicalStudio: React.FC<BotanicalStudioProps> = ({ mood, setMood,
 
               {/* Add to Starter Box CTA */}
               <div className="pt-4 border-t border-cosmic-stone/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs text-cosmic-forest/70">
+                <button
+                  onClick={openScentDetailModal}
+                  className="flex items-center gap-2 text-xs text-cosmic-wood hover:underline font-semibold"
+                >
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Cruelty-Free • Phthalate-Free • IFRA Compliant</span>
-                </div>
+                  <span>Cruelty-Free • IFRA Compliant • View Sourcing Spec &gt;</span>
+                </button>
                 <button
                   onClick={openCart}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-cosmic-forest text-cosmic-cream hover:bg-cosmic-dark font-medium text-xs tracking-wide transition-all shadow-md hover:shadow-lg"

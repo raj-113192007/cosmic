@@ -6,9 +6,17 @@ interface HeroSectionProps {
   mood: AtmosphereMood;
   setMood: (mood: AtmosphereMood) => void;
   openCart: () => void;
+  openCadModal: () => void;
+  openScienceModal: () => void;
 }
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ mood, setMood, openCart }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({
+  mood,
+  setMood,
+  openCart,
+  openCadModal,
+  openScienceModal,
+}) => {
   return (
     <section className="relative pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden">
       {/* Background Ambience Layer with dynamic mood gradient */}
@@ -64,48 +72,62 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ mood, setMood, openCar
                 <ArrowRight className="w-4 h-4 text-cosmic-wood-light" />
               </button>
 
-              <a
-                href="#engineering"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/70 hover:bg-white border border-cosmic-stone text-cosmic-forest font-medium text-sm transition-all duration-200 shadow-sm hover:shadow"
+              <button
+                onClick={openCadModal}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-white/80 hover:bg-white border border-cosmic-stone text-cosmic-forest font-medium text-sm transition-all duration-200 shadow-sm hover:shadow"
               >
                 <Layers className="w-4 h-4 text-cosmic-forest/60" />
-                <span>Explore 8-Layer Hardware</span>
-              </a>
+                <span>Inspect 8-Layer CAD</span>
+              </button>
             </div>
 
-            {/* Guarantee / Specs Micro-Bar */}
+            {/* Guarantee / Specs Micro-Bar - All Clickable with modals */}
             <div className="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-cosmic-stone/40 text-left">
-              <div className="flex items-start gap-2.5">
+              <button
+                onClick={openScienceModal}
+                className="flex items-start gap-2.5 text-left p-1.5 rounded-xl hover:bg-cosmic-sand/40 transition-colors"
+              >
                 <Wind className="w-4 h-4 text-cosmic-wood mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="text-xs font-bold text-cosmic-forest">2.4 MHz</div>
-                  <div className="text-[11px] text-cosmic-muted leading-tight">Cold Micro-Mist</div>
+                  <div className="text-xs font-bold text-cosmic-forest flex items-center gap-1">
+                    <span>2.4 MHz</span>
+                  </div>
+                  <div className="text-[11px] text-cosmic-muted leading-tight">Cold Micro-Mist &gt;</div>
                 </div>
-              </div>
+              </button>
 
-              <div className="flex items-start gap-2.5">
+              <button
+                onClick={openCart}
+                className="flex items-start gap-2.5 text-left p-1.5 rounded-xl hover:bg-cosmic-sand/40 transition-colors"
+              >
                 <Droplets className="w-4 h-4 text-cosmic-wood mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="text-xs font-bold text-cosmic-forest">Dual Format</div>
-                  <div className="text-[11px] text-cosmic-muted leading-tight">Liquid + Solid Gel</div>
+                  <div className="text-[11px] text-cosmic-muted leading-tight">Liquid + Gel &gt;</div>
                 </div>
-              </div>
+              </button>
 
-              <div className="flex items-start gap-2.5">
+              <button
+                onClick={openCadModal}
+                className="flex items-start gap-2.5 text-left p-1.5 rounded-xl hover:bg-cosmic-sand/40 transition-colors"
+              >
                 <Zap className="w-4 h-4 text-cosmic-wood mt-0.5 flex-shrink-0" />
                 <div>
                   <div className="text-xs font-bold text-cosmic-forest">Type-C Fast</div>
-                  <div className="text-[11px] text-cosmic-muted leading-tight">Universal Power</div>
+                  <div className="text-[11px] text-cosmic-muted leading-tight">Universal 5V &gt;</div>
                 </div>
-              </div>
+              </button>
 
-              <div className="flex items-start gap-2.5">
+              <button
+                onClick={openScienceModal}
+                className="flex items-start gap-2.5 text-left p-1.5 rounded-xl hover:bg-cosmic-sand/40 transition-colors"
+              >
                 <ShieldCheck className="w-4 h-4 text-cosmic-wood mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="text-xs font-bold text-cosmic-forest">Dry-Burn Auto</div>
-                  <div className="text-[11px] text-cosmic-muted leading-tight">Intelligent Shut-Off</div>
+                  <div className="text-xs font-bold text-cosmic-forest">Dry-Burn Safe</div>
+                  <div className="text-[11px] text-cosmic-muted leading-tight">Lab Tested &gt;</div>
                 </div>
-              </div>
+              </button>
             </div>
           </div>
 

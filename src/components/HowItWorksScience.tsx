@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { Cpu, VolumeX, ShieldCheck, ThermometerSnowflake, Activity } from 'lucide-react';
 
-export const HowItWorksScience: React.FC = () => {
+interface HowItWorksScienceProps {
+  openScienceModal: () => void;
+}
+
+export const HowItWorksScience: React.FC<HowItWorksScienceProps> = ({ openScienceModal }) => {
   const [activeTab, setActiveTab] = useState<'cavitation' | 'coldmist' | 'acoustic'>('cavitation');
   const [frequencyBoost, setFrequencyBoost] = useState(false);
 
@@ -280,13 +284,17 @@ export const HowItWorksScience: React.FC = () => {
               </div>
             )}
 
-            <div className="pt-2 flex items-center gap-4 text-xs font-medium text-cosmic-forest/80">
-              <span className="flex items-center gap-1.5 text-cosmic-wood font-semibold">
-                <ShieldCheck className="w-4 h-4" />
-                CE & RoHS Certified
-              </span>
-              <span>•</span>
-              <span>Tested &gt;1,000 Hours Continuous Run</span>
+            <div className="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-cosmic-stone/40">
+              <div className="flex items-center gap-2 text-xs font-semibold text-cosmic-forest/80">
+                <ShieldCheck className="w-4 h-4 text-emerald-600" />
+                <span>CE &amp; RoHS Certified • &gt;1,000h Stress Tested</span>
+              </div>
+              <button
+                onClick={openScienceModal}
+                className="text-xs font-bold text-cosmic-wood hover:text-cosmic-dark flex items-center gap-1.5 underline decoration-cosmic-wood/40 underline-offset-4"
+              >
+                <span>Read Full Engineering Whitepaper &gt;</span>
+              </button>
             </div>
 
           </div>
