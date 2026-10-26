@@ -16,7 +16,7 @@ export const DualRefillLab: React.FC<DualRefillLabProps> = ({ openCart }) => {
   const aerosolCansSaved = Math.round((365 / daysPerBottle) * 1.5);
 
   return (
-    <section id="technology" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40">
+    <section id="refills" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -29,7 +29,7 @@ export const ScentMatcherQuiz: React.FC<ScentMatcherQuizProps> = ({ setMood, ope
   const recommendedMood: AtmosphereMood = isLavender ? 'lavender' : 'gardenia';
 
   return (
-    <section id="quiz" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40">
+    <section id="quiz" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40 scroll-mt-28">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

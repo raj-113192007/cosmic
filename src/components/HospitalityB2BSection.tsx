@@ -14,7 +14,7 @@ export const HospitalityB2BSection: React.FC<HospitalityB2BSectionProps> = ({ op
   const wholesaleSavings = 25; // 25% wholesale discount
 
   return (
-    <section id="hospitality" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40">
+    <section id="hospitality" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

@@ -20,7 +20,7 @@ export const BotanicalStudio: React.FC<BotanicalStudioProps> = ({
     SCENT_PROFILES.find((s) => s.id === mood) || SCENT_PROFILES[0];
 
   return (
-    <section id="collections" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40">
+    <section id="collections" className="py-20 md:py-28 bg-[#FAF7F2] border-t border-cosmic-stone/40 scroll-mt-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

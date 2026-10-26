@@ -75,7 +75,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <a href="#technology" className="hover:text-cosmic-wood transition-colors">
+                <a href="#refills" className="hover:text-cosmic-wood transition-colors">
                   Dual-Refill Platform
                 </a>
               </li>

@@ -59,6 +59,23 @@ export function App() {
     };
   }, []);
 
+  // Global escape key to close any active modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsCartOpen(false);
+        setIsB2BOpen(false);
+        setIsScienceOpen(false);
+        setIsCadOpen(false);
+        setIsCertificationsOpen(false);
+        setIsFounderOpen(false);
+        setIsScentDetailOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className={`min-h-screen font-sans bg-[#FAF7F2] text-[#18201B] selection:bg-cosmic-wood selection:text-white transition-colors duration-500 ${
       mood === 'lavender' ? 'theme-lavender' : 'theme-gardenia'

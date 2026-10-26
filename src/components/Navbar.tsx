@@ -72,6 +72,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               8-Layers
             </a>
             <a
+              href="#refills"
+              className="px-3 py-1.5 rounded-full hover:text-cosmic-wood hover:bg-stone-100/60 transition-all duration-200"
+            >
+              Dual-Tech
+            </a>
+            <a
               href="#hospitality"
               className="px-3 py-1.5 rounded-full hover:text-cosmic-wood hover:bg-stone-100/60 transition-all duration-200"
             >
@@ -198,6 +204,13 @@ export const Navbar: React.FC<NavbarProps> = ({
                 className="py-1 hover:text-cosmic-wood"
               >
                 8-Layer Hardware CAD
+              </a>
+              <a
+                href="#refills"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1 hover:text-cosmic-wood"
+              >
+                Dual Refill Technology
               </a>
               <a
                 href="#hospitality"
